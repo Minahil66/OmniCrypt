@@ -46,6 +46,16 @@ void Ciphers::saveDecrypted(){
     outfile.close();
     coolSuccess("File saved as: " + name);
 }
+string Ciphers::getFilename() const {
+    return filename;
+}
+
+int Ciphers::getsize() const {
+    return size;
+}
+
+Ciphers::~Ciphers() {}
+
 
 // ========== ATBASH CIPHER ==========
 
