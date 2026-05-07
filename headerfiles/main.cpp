@@ -241,7 +241,7 @@ int main(){
             coolSuccess("CascadeEngine operation complete!");
         }
         else if(s == 7){
-            coolSuccess("Goodbye!");
+            coolSuccess("OmniCrypt logging out...");
         }
         else {
             coolError("Invalid option");
