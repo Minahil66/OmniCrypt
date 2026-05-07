@@ -39,7 +39,6 @@ void Logger::debug(string msg, string cipherName, int stepNumber, string operati
 void Logger::warn(string msg, string cipherName, int stepNumber, string operation, string fileName) {
     log(msg, "WARN", cipherName, stepNumber, operation, fileName);
 }
-
 void Logger::print() {
     for (size_t i = 0; i < logs.size(); i++) {
         cout << "[" << logs[i].timestampStr << "] "
@@ -75,5 +74,11 @@ void Logger::saveToFile() {
 }
 
 void Logger::clearLogs() {
-    logs.clear();
+     	if(!logs.empty()){
+    	logs.clear();
+    	cout<<"History cleared"<<endl;
+    }
+    else{
+    	cout<<"History already empty"<<endl;
+			}
 }
