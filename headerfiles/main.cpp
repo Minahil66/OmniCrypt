@@ -1,8 +1,9 @@
-#include "COE.h"
-#include "ciphers.h"
-#include "steganography.h"
-#include "encryption_tracker.h"
-#include "cascade_engine.h"
+#include "COE.h" //colors and effects
+#include "ciphers.h" //m
+#include "steganography.h" //m
+#include "encryption_tracker.h" //mv
+#include "cascade_engine.h" //r
+#include"logger.h" // u
 #include <iostream>
 
 using namespace std;
@@ -14,8 +15,8 @@ int main(){
     string file, key;
     int s;
     
-    cout << CYAN << "Enter the path/file: " << RESET;
-    cin >> file;
+     cout << CYAN << "Enter the path/file: " << RESET;
+     cin >> file;
     
     do{
         cout << CYAN << "\n╔══════════════════════════════════════╗" << endl;
@@ -31,6 +32,9 @@ int main(){
         cout << "╚══════════════════════════════════════╝" << RESET << endl;
         cout << CYAN << "SELECT: " << RESET;
         cin >> s;
+
+        cout << CYAN << "Enter the path/file: " << RESET;
+        cin >> file;
         
         // ========== OPTION 1 & 2: MANUAL CASCADE (Your original code) ==========
         if (s == 1 || s == 2){
@@ -46,6 +50,7 @@ int main(){
 
                 switch(choice){
                     case 1:{
+
                         cout << CYAN << "Enter string key: " << RESET;
                         cin >> key;
                         {
@@ -54,12 +59,13 @@ int main(){
                                 coolInfo("Encrypting through Vigenere Cipher...");
                                 v1.encrypt();
                                 v1.saveEncrypted();
-                                file = "EncryptedVer";
+                                file="Encrypted";
+
                             } else {
                                 coolInfo("Decrypting through Vigenere Cipher...");
                                 v1.decrypt();
                                 v1.saveDecrypted();
-                                file = "DecryptedVer";
+                                file="Decrypted";
                             }
                         }
                         break;
@@ -74,12 +80,13 @@ int main(){
                                 coolInfo("Encrypting through XOR Cipher...");
                                 x1.encrypt();
                                 x1.saveEncrypted();
-                                file = "EncryptedVer";
-                            } else {
+                                file="Encrypted";
+                                } else {
                                 coolInfo("Decrypting through XOR Cipher...");
                                 x1.decrypt();
                                 x1.saveDecrypted();
-                                file = "DecryptedVer";
+                                file="Decrypted";
+                                
                             }
                         }
                         break;
@@ -91,12 +98,13 @@ int main(){
                                 coolInfo("Encrypting through Byte Reversal Cipher...");
                                 b1.encrypt();
                                 b1.saveEncrypted();
-                                file = "EncryptedVer";
+                                file="Encrypted";
+                                
                             } else {
                                 coolInfo("Decrypting through Byte Reversal Cipher...");
                                 b1.decrypt();
                                 b1.saveDecrypted();
-                                file = "DecryptedVer";
+                                file="Decrypted";
                             }
                         }
                         break;
@@ -108,12 +116,12 @@ int main(){
                                 coolInfo("Encrypting through Atbash Cipher...");
                                 a1.encrypt();
                                 a1.saveEncrypted();
-                                file = "EncryptedVer";
+                                file="Encrypted";
                             } else {
                                 coolInfo("Decrypting through Atbash Cipher...");
                                 a1.decrypt();
                                 a1.saveDecrypted();
-                                file = "DecryptedVer";
+                                file="Decrypted";
                             }
                         }
                         break;
@@ -166,12 +174,12 @@ int main(){
         coolInfo("No log file found. Run encryption/decryption first to generate logs.");
     }
 }
-        // ========== OPTION 6: CASCADE ENGINE (NEW!) ==========
+        // ========== OPTION 6: CASCADE ENGINE ==========
         else if(s == 6){
             coolHeader("CASCADE ENGINE");
             
             string fname;
-            cout << CYAN << "Enter file path: " << RESET;
+            cout << CYAN << "Enter file path of the message file: " << RESET;
             cin >> fname;
             
             // Create engine
