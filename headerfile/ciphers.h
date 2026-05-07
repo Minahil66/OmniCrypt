@@ -4,41 +4,52 @@
 #include <vector>
 #include <string>
 
-class Ciphers {
-protected:
-    std::vector<char> holder;
-    int size;
-    std::string filename;
-public:
-    Ciphers(std::string n);
-    virtual void encrypt() = 0;
-    virtual void decrypt() = 0;
-    void saveEncrypted();
-    void saveDecrypted();
-    virtual ~Ciphers() {}
-    
-    std::vector<char>& getData() { return holder; }
-    void setData(std::vector<char>& newData) { holder = newData; }
+using namespace std;
+
+class Ciphers{
+    private:
+        string filename;
+    protected:
+        vector<char> holder;
+        int size;
+    public:
+        virtual void encrypt()=0;
+        virtual void decrypt()=0;
+        void saveEncrypted();
+        void saveDecrypted();
+        Ciphers(string n);
+        string getFilename() const;
+        int getsize() const;
+        virtual ~Ciphers();
 };
 
-class AtbashCipher : public Ciphers {
-public:
-    AtbashCipher(std::string n);
-    void encrypt() override;
-    void decrypt() override;
+class AtbashCipher: public Ciphers{
+    public:
+        AtbashCipher(string n);
+        void encrypt() override;
+        void decrypt() override;
 };
 
-class ByteReversalCipher : public Ciphers {
+class ByteReversalCipher: public Ciphers{
+    public:
+        ByteReversalCipher(string n);
+        void encrypt() override;
+        void decrypt() override;
+};
+
+class VigenereCipher : public Ciphers {
+    string key;
 public:
-    ByteReversalCipher(std::string n);
+    VigenereCipher(string n, string k);
     void encrypt() override;
     void decrypt() override;
 };
 
 class XORCipher : public Ciphers {
+private:
     int key;
 public:
-    XORCipher(std::string n, int k);
+    XORCipher(string n, int k);
     void encrypt() override;
     void decrypt() override;
 };
