@@ -11,8 +11,8 @@ class Steganography {
     
 public:
     Steganography(std::string n);
-    void hideMessage();
-    void extractMessage();
+    void HideMessage();
+    void ExtractMessage();
 };
 
 #endif
