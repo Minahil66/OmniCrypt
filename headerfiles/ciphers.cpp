@@ -28,23 +28,17 @@ Ciphers::Ciphers(string n) : filename(n) {
 }
 
 void Ciphers::saveEncrypted(){
-    string name;
-    cout << CYAN << "Save file as: " << RESET;
-    cin >> name;
-    ofstream outfile(name, ios::binary);
+    ofstream outfile("Encrypted", ios::binary);
     outfile.write(holder.data(), holder.size());
     outfile.close();
-    coolSuccess("File saved as: " + name);
-}
+    coolSuccess("File saved as: Encrypted");
+    }
 
 void Ciphers::saveDecrypted(){
-    string name;
-    cout << CYAN << "Save file as: " << RESET;
-    cin >> name;
-    ofstream outfile("DecryptedVer", ios::binary);
+    ofstream outfile("Decrypted", ios::binary);
     outfile.write(holder.data(), holder.size());
     outfile.close();
-    coolSuccess("File saved as: " + name);
+    coolSuccess("File saved as: Decrypted" );
 }
 string Ciphers::getFilename() const {
     return filename;
