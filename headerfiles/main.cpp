@@ -14,10 +14,6 @@ int main(){
     int choice;
     string file, key;
     int s;
-    
-     cout << CYAN << "Enter the path/file: " << RESET;
-     cin >> file;
-    
     do{
         cout << CYAN << "\n╔══════════════════════════════════════╗" << endl;
         cout << "║              MAIN MENU               ║" << endl;
