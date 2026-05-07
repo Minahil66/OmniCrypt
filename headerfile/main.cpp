@@ -18,16 +18,16 @@ int main(){
     cin >> file;
     
     do{
-        cout << CYAN << "\n╔════════════════════════════════════╗" << endl;
-        cout << "║         " << BOLD << "MAIN MENU" << CYAN << "               ║" << endl;
-        cout << "╠════════════════════════════════════╣" << endl;
-        cout << "║  " << GREEN << "1" << CYAN << ". Encrypt                      ║" << endl;
-        cout << "║  " << GREEN << "2" << CYAN << ". Decrypt                      ║" << endl;
-        cout << "║  " << GREEN << "3" << CYAN << ". Steganograph a BMP image     ║" << endl;
-        cout << "║  " << GREEN << "4" << CYAN << ". Encryption Tracker           ║" << endl;
-        cout << "║  " << GREEN << "5" << CYAN << ". Logger (check history)       ║" << endl;
-        cout << "║  " << RED << "6" << CYAN << ". Exit                          ║" << endl;
-        cout << "╚════════════════════════════════════╝" << RESET << endl;
+cout << CYAN << "\n╔══════════════════════════════════════╗" << endl;
+cout << "║              MAIN MENU               ║" << endl;
+cout << "╠══════════════════════════════════════╣" << endl;
+cout << "║  1. Encrypt                          ║" << endl;
+cout << "║  2. Decrypt                          ║" << endl;
+cout << "║  3. Steganograph a BMP image         ║" << endl;
+cout << "║  4. Encryption Tracker               ║" << endl;
+cout << "║  5. Logger (check history)           ║" << endl;
+cout << "║  6. Exit                             ║" << endl;
+cout << "╚══════════════════════════════════════╝" << RESET << endl;
         cout << CYAN << "SELECT: " << RESET;
         cin >> s;
         
