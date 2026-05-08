@@ -32,8 +32,8 @@ public:
     void error(string msg, string cipherName, int stepNumber, string operation, string fileName);
     void debug(string msg, string cipherName, int stepNumber, string operation, string fileName);
     void warn(string msg, string cipherName, int stepNumber, string operation, string fileName);
-    void print();
-    void saveToFile();
+    void print()const;
+    void saveToFile()const;
     void clearLogs();
 };
 
