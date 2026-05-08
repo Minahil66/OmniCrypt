@@ -39,7 +39,7 @@ void Logger::debug(string msg, string cipherName, int stepNumber, string operati
 void Logger::warn(string msg, string cipherName, int stepNumber, string operation, string fileName) {
     log(msg, "WARN", cipherName, stepNumber, operation, fileName);
 }
-void Logger::print() {
+void Logger::print() const{
     for (size_t i = 0; i < logs.size(); i++) {
         cout << "[" << logs[i].timestampStr << "] "
              << "[" << logs[i].level << "] "
@@ -52,7 +52,7 @@ void Logger::print() {
     }
 }
 
-void Logger::saveToFile() {
+void Logger::saveToFile()const {
     ofstream out("log.txt", ios::app);  // ios::app = append mode
     if (!out.is_open()) {
         cout << "Error: File failed to open\n";
