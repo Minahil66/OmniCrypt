@@ -125,10 +125,13 @@ void CascadeEngine::decrypt() {
     // Decrypt in reverse order
     for (int i = cipherChain.size() - 1; i >= 0; i--) {
         cout << "[Step " << cipherChain.size() - i << "] Reversing " << cipherNames[i] << "..." << endl;
+         if (i < (int)cipherChain.size() - 1) {
+        cipherChain[i]->setData(cipherChain[i+1]->getData());
+    }
         cipherChain[i]->decrypt();
         logger.info("Decryption step complete", cipherNames[i], i+1, "DECRYPT", inputFile);
-    }
-    
+    cipherChain[i]->decrypt();
+}
     cipherChain.back()->saveDecrypted();
     
     cout << "════════════════════════════════════════" << endl;
