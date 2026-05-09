@@ -40,9 +40,14 @@ cd OmniCrypt
 
 ### 3. Compile using:
 
-g++ -std=c++11 main.cpp cascade_engine.cpp ciphers.cpp encryption_tracker.cpp logger.cpp steganography.cpp -o omnicrypt
+**Windows:**
+- `g++ -std=c++11 main.cpp cascade_engine.cpp ciphers.cpp encryption_tracker.cpp logger.cpp steganography.cpp -o omnicrypt`
 
-
+ **WSL:** 
+-Run script setup.sh:
+- `chmod +x setup.sh`
+-  `./setup.sh`
+ 
 ### 4. Run
 
 - Linux / WSL: `./omnicrypt`
