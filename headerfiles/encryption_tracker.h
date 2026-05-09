@@ -30,6 +30,8 @@ public:
     
     // Constructor without chain (for decryption mode)
     EncryptionTracker(string fname);
+
+    EncryptionTracker(string fname, bool loadFromMeta);
     
     // Save metadata to .meta file
     void saveMetadata();
