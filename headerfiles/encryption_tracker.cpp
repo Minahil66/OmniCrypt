@@ -74,8 +74,7 @@ EncryptionTracker::EncryptionTracker(string fname) : filename(fname), tamperedFl
     cout << "  Hash : " << hash << endl;
 }
 
-// ── Constructor 3: verification mode (loads hash from .meta file) ─────────
-// FIX: this is the correct constructor for tamper detection
+// ── Constructor 3: verification mode (loads hash from .meta file) ──
 EncryptionTracker::EncryptionTracker(string fname, bool loadFromMeta)
     : filename(fname), tamperedFlag(false) {
 
