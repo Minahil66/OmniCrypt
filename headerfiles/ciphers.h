@@ -22,7 +22,6 @@ class Ciphers{
         int getsize() const;
         virtual ~Ciphers();
         
-    // ========== ADD THESE TWO LINES ==========
     vector<char>& getData() { return holder; }
     void setData(const vector<char>& newData) { holder = newData; }
 };
