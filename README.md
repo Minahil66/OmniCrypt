@@ -60,7 +60,7 @@ cd OmniCrypt
 - **WSL:** Search "Ubuntu" in Start menu
 - **Linux:** Press `Ctrl + Alt + T`
 
-## Authors
+## Authors (M.U.R.M)
 
 - Mariya Vayani
 - Ujala Usman
