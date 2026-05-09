@@ -50,6 +50,7 @@ cd OmniCrypt
 
 -Run script setup.sh:
 - `chmod +x setup.sh`
+-  `sed -i 's/\r$//' setup.sh`
 -  `./setup.sh`
  
 ### 4. Run
