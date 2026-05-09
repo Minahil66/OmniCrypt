@@ -48,7 +48,7 @@ void Steganography::HideMessage() {
 
 void Steganography::ExtractMessage() {
     vector<char> msg;
-    for(int i = 0x36; i <= imgdata.size(); i++){
+    for(int i = 0x36; i < imgdata.size(); i++){
         if(imgdata[i] == '\0') break;
         msg.push_back(imgdata[i]);
     }
