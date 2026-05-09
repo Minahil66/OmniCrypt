@@ -38,7 +38,7 @@ inline void coolBanner() {
 ║                                                              ║
 ║              MULTI-LAYER ENCRYPTION SUITE                    ║
 ║         Cipher Cascade · Steganography · Security            ║
-║                   Made by: M U R M                           ║
+║                   Made by: M.U.R.M                           ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════╝
 )" << RESET << std::endl;
