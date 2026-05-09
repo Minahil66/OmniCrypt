@@ -21,6 +21,7 @@ OmniCrypt applies multiple ciphers in sequence, hides the result inside a normal
 ### 1. Clone the repository
 
 git clone https://github.com/Minahil66/OmniCrypt.git
+
 cd OmniCrypt
 
 ### 2. Install a C++ compiler (If you don't have one already)
