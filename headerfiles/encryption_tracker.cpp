@@ -74,6 +74,59 @@ EncryptionTracker::EncryptionTracker(string fname) : filename(fname), tamperedFl
     cout << "  Hash : " << hash << endl;
 }
 
+// ── Constructor 3: verification mode (loads hash from .meta file) ─────────
+// FIX: this is the correct constructor for tamper detection
+EncryptionTracker::EncryptionTracker(string fname, bool loadFromMeta)
+    : filename(fname), tamperedFlag(false) {
+
+    if (!loadFromMeta) {
+        // if loadFromMeta is false, behave like simple constructor
+        fileSize = computeFileSize(fname);
+        hash = computeHash(fname);
+        return;
+    }
+
+    // load stored hash from .meta file
+    string metaFile = fname + ".meta";
+    ifstream in(metaFile);
+    
+    if (!in.is_open()) {
+        throw runtime_error(
+            "No .meta file found for: " + fname +
+            ". Please encrypt the file first."
+        );
+    }
+    
+    string line;
+    while (getline(in, line)) {
+        // look for line: "Hash (djb2)  : a3f8c21d9b004e77"
+        if (line.find("Hash (djb2)") != string::npos) {
+            size_t pos = line.find(": ");
+            if (pos != string::npos) {
+                hash = line.substr(pos + 2);
+                // trim whitespace
+                while (!hash.empty() && (hash.back() == ' ' || hash.back() == '\r'))
+                    hash.pop_back();
+            }
+            break;
+        }
+    }
+    in.close();
+    
+    if (hash.empty()) {
+        throw runtime_error(
+            "Could not read hash from .meta file. File may be corrupted."
+        );
+    }
+
+    fileSize = computeFileSize(fname);
+
+    coolInfo("[EncryptionTracker] Loaded stored hash from .meta file.");
+    cout << "  File        : " << filename << endl;
+    cout << "  Size        : " << fileSize << " bytes" << endl;
+    cout << "  Stored hash : " << hash << endl;
+}
+
 void EncryptionTracker::saveMetadata() {
     string metaFile = filename + ".meta";
     ofstream out(metaFile);
@@ -112,6 +165,7 @@ void EncryptionTracker::saveMetadata() {
 }
 
 bool EncryptionTracker::isTampered() {
+    if (tamperedFlag) return true; // already detected, skip recompute
     string currentHash = computeHash(filename);
     
     cout << "\n[EncryptionTracker] Integrity Check" << endl;
