@@ -43,7 +43,7 @@ cd OmniCrypt
 **Windows:**
 - `g++ -std=c++11 main.cpp cascade_engine.cpp ciphers.cpp encryption_tracker.cpp logger.cpp steganography.cpp -o omnicrypt`
 
- **WSL:** 
+ **WSL / Linux:** 
 
 -Run script setup.sh:
 - `chmod +x setup.sh`
@@ -59,7 +59,6 @@ cd OmniCrypt
 - **Windows:** Press `Win + R`, type `cmd`, press Enter
 - **WSL:** Search "Ubuntu" in Start menu
 - **Linux:** Press `Ctrl + Alt + T`
-- **Mac:** Press `Cmd + Space`, type "Terminal", press Enter
 
 ## Authors
 
