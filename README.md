@@ -2,6 +2,10 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=28&pause=1000&color=3A506B&center=true&vCenter=true&width=600&lines=OmniCrypt;Multi-Layer+Encryption;Defense+in+Depth" alt="Typing SVG" />
 </p>
 # OmniCrypt
+<p align="center">
+  <img src="Assets/asset1.jpg" width="600">
+</p>
+
 
 Freshman year Computer science students walk into a terminal with one goal — build something that doesn't embarrass them in front of their professor.
 
