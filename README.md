@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://readme-typing-svg.demolab.com?font=Impact&size=28&pause=1000&color=00FFFF&center=true&vCenter=true&width=600&lines=OmniCrypt;Multi-Layer+Encryption;Defense+in+Depth" alt="Typing SVG" />
+  <img src="https://readme-typing-svg.demolab.com?font=Impact&size=30&pause=1000&color=00FFFF&center=true&vCenter=true&width=600&lines=OmniCrypt;Multi-Layer+Encryption;Defense+in+Depth" alt="Typing SVG" />
 </p>
 # OmniCrypt
 <p align="center">
