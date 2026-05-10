@@ -129,25 +129,22 @@ void CascadeEngine::decrypt() {
         return;
     }
     infile.seekg(0, ios::end);
-    int fileSize = infile.tellg();
+    streampos fileSize = infile.tellg(); //streampos to hold large files
     infile.seekg(0, ios::beg);
-    vector<char> encryptedData(fileSize);
-    infile.read(encryptedData.data(), fileSize);
+    vector<char> encryptedData(static_cast<size_t>(fileSize));
+    infile.read(encryptedData.data(), static_cast<streamsize>(fileSize));
     infile.close();
     
     cipherChain.back()->setData(encryptedData);
     
     // Decrypt in reverse order (ONCE per cipher)
-    for (int i = cipherChain.size() - 1; i >= 0; i--) {
-        cout << "[Step " << cipherChain.size() - i << "] Reversing " << cipherNames[i] << "..." << endl;
-        
-        // Pass data to previous cipher for next iteration
-        if (i > 0) {
-            cipherChain[i-1]->setData(cipherChain[i]->getData());
-        }
-        
-        cipherChain[i]->decrypt();
-        
+        for (int i = cipherChain.size() - 1; i >= 0; i--) {
+    cout << "[Step " << cipherChain.size() - i << "] Reversing " << cipherNames[i] << "..." << endl;
+    cipherChain[i]->decrypt(); // decrypt FIRST
+    
+    if (i > 0) {
+        cipherChain[i-1]->setData(cipherChain[i]->getData()); // THEN pass result down
+    }
         logger.info("Decryption step complete", cipherNames[i], i+1, "DECRYPT", inputFile);
     }
     
