@@ -3,7 +3,7 @@
 </p>
 # OmniCrypt
 <p align="center">
-  <img src="Assets/asset1.jpg" width="600">
+  <img src="Assets/asset2.jpg" width="600">
 </p>
 
 
