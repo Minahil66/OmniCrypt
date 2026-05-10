@@ -31,7 +31,6 @@ int main(){
         cout << CYAN << "SELECT: " << RESET;
         cin >> s;
 
-        // don't ask for file on exit or logger
         if(s != 7 && s != 5 && s != 6){
             cout << CYAN << "Enter the path/file: " << RESET;
             cin >> file;
@@ -50,6 +49,7 @@ int main(){
         		throw runtime_error("File not found: " + file);
     			}
     			testFile.close();
+
                 int n = 1;
                 while(n <= 3){
                     cout << CYAN << "\n┌─[" << YELLOW << "Step " << n << "/3"
@@ -145,7 +145,6 @@ int main(){
                         }
                         default:{
                             coolError("Incorrect selection");
-                            // don't count invalid selection as a step
                             n--;
                             break;
                         }
@@ -266,7 +265,7 @@ int main(){
                                 engine.addCipher("xor", cipherKey);
                             } catch(invalid_argument& e){
                                 coolError("XOR key must be an integer. Skipping cipher.");
-                                i--; // retry this step
+                                i--; // retry da step
                             }
                         }
                         else if(cipherType == 3){
@@ -276,7 +275,7 @@ int main(){
                             engine.addCipher("atbash");
                         } else {
                             coolError("Invalid cipher type.");
-                            i--; // retry this step
+                            i--; // retry the step
                         }
                     }
 
