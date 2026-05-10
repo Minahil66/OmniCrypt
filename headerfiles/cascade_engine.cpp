@@ -1,4 +1,5 @@
 #include "cascade_engine.h"
+#include "COE.h"
 #include <iostream>
 
 using namespace std;
