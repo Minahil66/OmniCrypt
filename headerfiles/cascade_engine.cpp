@@ -122,17 +122,36 @@ void CascadeEngine::decrypt() {
         cout << "[Tracker] No tracker attached. Skipping integrity check." << endl;
     }
     
-    // Decrypt in reverse order
+    // Load the encrypted file into the LAST cipher
+    ifstream infile("Encrypted", ios::binary);
+    if (!infile.is_open()) {
+        coolError("Cannot open encrypted file 'Encrypted'");
+        return;
+    }
+    infile.seekg(0, ios::end);
+    int fileSize = infile.tellg();
+    infile.seekg(0, ios::beg);
+    vector<char> encryptedData(fileSize);
+    infile.read(encryptedData.data(), fileSize);
+    infile.close();
+    
+    cipherChain.back()->setData(encryptedData);
+    
+    // Decrypt in reverse order (ONCE per cipher)
     for (int i = cipherChain.size() - 1; i >= 0; i--) {
         cout << "[Step " << cipherChain.size() - i << "] Reversing " << cipherNames[i] << "..." << endl;
-         if (i < (int)cipherChain.size() - 1) {
-        cipherChain[i]->setData(cipherChain[i+1]->getData());
-    }
+        
+        // Pass data to previous cipher for next iteration
+        if (i > 0) {
+            cipherChain[i-1]->setData(cipherChain[i]->getData());
+        }
+        
         cipherChain[i]->decrypt();
+        
         logger.info("Decryption step complete", cipherNames[i], i+1, "DECRYPT", inputFile);
-    cipherChain[i]->decrypt();
-}
-    cipherChain.back()->saveDecrypted();
+    }
+    
+    cipherChain[0]->saveDecrypted();
     
     cout << "════════════════════════════════════════" << endl;
     cout << "  DECRYPTION COMPLETE" << endl;
@@ -140,7 +159,6 @@ void CascadeEngine::decrypt() {
     
     logger.info("Decryption cascade completed", "Engine", 0, "END", inputFile);
 }
-
 void CascadeEngine::saveMetadata() {
     if (tracker) {
         tracker->saveMetadata();
