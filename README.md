@@ -7,7 +7,7 @@
 </p>
 
 
-Freshman year Computer science students walk into a terminal with one goal — build something that doesn't embarrass them in front of their professor.
+Freshman year Computer science students walk into a terminal with one goal, build something that doesn't embarrass them in front of their professor.
 
 This is that project.
 
